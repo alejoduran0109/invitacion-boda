@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro & Sthefania | Invitación de Boda</title>
+    <link rel="stylesheet" href="styles.css?v=2.4">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Audio Element for background music (Hidden) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="stage-container">
+        <!-- ENVELOPE SCREEN -->
+        <div id="envelope-screen" class="envelope-screen">
+
+            <!-- NEW: Floating Welcome Tag before opening -->
+            <div class="welcome-tag" id="welcome-tag">
+                <p class="tag-subtitle">BIENVENIDOS</p>
+                <h1 class="tag-name" id="env-guest-name">Invitado Especial</h1>
+                <p class="tag-info" id="env-guest-info">Pase de Invitación</p>
+            </div>
+
+            <div class="envelope-wrapper" id="envelope">
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="body"></div>
+
+                    <div class="guest-card">
+                        <h2 class="invite-title">Nuestra Boda</h2>
+                        <div class="rings-icon" style="margin: 15px 0; font-size: 2rem; color: var(--accent-color);">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h1 class="guest-name" style="font-size: 2.2rem;">06 . 06 . 2026</h1>
+                        <p class="guest-info">Alejandro & Sthefania</p>
+                    </div>
+
+                    <div class="seal">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="click-hint">Toca el sobre para abrir</p>
+        </div>
+
+        <!-- MAIN INVITATION -->
+        <div id="main-invitation" class="main-content" style="display: none;">
+            <!-- Hero Section -->
+            <section class="hero">
+                <img src="WhatsApp Image 2026-03-01 at 2.42.39 PM.jpeg" alt="Alejandro & Sthefania"
+                    class="hero-background">
+                <div class="hero-overlay-gradient"></div>
+
+                <div class="hero-content">
+                    <div class="hero-top-text">¡NOS CASAMOS!</div>
+
+                    <div class="hero-names-box">
+                        <h1 class="name" style="margin-bottom: 0.5rem;">Alejandro</h1>
+                        <div class="ampersand">&</div>
+                        <h1 class="name" style="margin-top: 0.5rem;">Sthefania</h1>
+                    </div>
+
+                    <div class="hero-date-info">06 . 06 . 2026</div>
+
+                    <div id="countdown" class="countdown-minimal">
+                        <div class="countdown-item"><span id="days" class="number">00</span><span
+                                class="label">Días</span></div>
+                        <div class="countdown-item"><span id="hours" class="number">00</span><span
+                                class="label">Hrs</span></div>
+                        <div class="countdown-item"><span id="minutes" class="number">00</span><span
+                                class="label">Min</span></div>
+                        <div class="countdown-item"><span id="seconds" class="number">00</span><span
+                                class="label">Seg</span></div>
+                    </div>
+
+                    <div class="scroll-indicator" style="position: relative; margin-top: 2rem;"
+                        onclick="document.getElementById('location').scrollIntoView({behavior: 'smooth'})">
+                        <span>Desliza para ver más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Location Section -->
+            <section id="location" style="background-color: var(--white);">
+                <div class="section-header">
+                    <h2>Ubicación</h2>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-icon-wrapper">
+                        <div class="divider-line"></div>
+                        <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="divider-line"></div>
+                    </div>
+                    <h3>Ceremonia & Recepción</h3>
+                    <h4 style="margin-top: 1rem; font-family: 'Montserrat', sans-serif; font-weight: 300;">
+                        Hacienda Lagos de Veracruz</h4>
+                    <p>Jamundí, Valle del Cauca<br>Colombia</p>
+                    <div
+                        style="margin: 2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--primary-color);">
+                        17:30 h</div>
+                    <a href="https://www.google.com/maps/search/Hacienda+Lagos+de+Veracruz+Jamundi" target="_blank"
+                        class="cta-button-outline" style="position: relative; z-index: 50;">Ver
+                        en Maps</a>
+                </div>
+            </section>
+
+            <!-- Dress Code -->
+            <section id="dress-code" style="background-color: var(--paper-color);">
+                <div class="section-header">
+                    <h2>Dress Code</h2>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-icon-wrapper">
+                        <div class="divider-line"></div>
+                        <div class="icon-circle"><i class="fa-solid fa-chess-queen"></i></div>
+                        <div class="divider-line"></div>
+                    </div>
+                    <h3 style="letter-spacing: 2px;">Riguroso Formal</h3>
+                    <p style="margin-top: 1.5rem;">El blanco está reservado exclusivamente para la novia. Por
+                        favor, acompáñanos con tus mejores galas en otros tonos.</p>
+                    <p style="margin-top: 1rem; font-weight: 600; letter-spacing: 1px;">- NO NIÑOS -</p>
+                </div>
+            </section>
+
+            <!-- Itinerary -->
+            <section id="itinerary">
+                <div class="section-header">
+                    <h2>Itinerario</h2>
+                </div>
+                <div class="section-icon-wrapper" style="margin-bottom: 2rem;">
+                    <div class="divider-line"></div>
+                    <div class="icon-circle"><i class="fa-regular fa-clock"></i></div>
+                    <div class="divider-line"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">17:30 h</div>
+                        <div class="event">
+                            <h3>Recepción</h3>
+                            <p>Bienvenida a nuestros invitados</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">18:00 h</div>
+                        <div class="event">
+                            <h3>Ceremonia</h3>
+                            <p>Unión sagrada en el jardín</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">19:30 h</div>
+                        <div class="event">
+                            <h3>Banquete</h3>
+                            <p>Cena y brindis de celebración</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">21:00 h</div>
+                        <div class="event">
+                            <h3>Fiesta</h3>
+                            <p>¡A bailar hasta el amanecer!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gift -->
+            <section id="gift" style="background-color: var(--white);">
+                <div class="section-header">
+                    <h2>Mesa de Regalos</h2>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-icon-wrapper">
+                        <div class="divider-line"></div>
+                        <div class="icon-circle"><i class="fa-solid fa-gift"></i></div>
+                        <div class="divider-line"></div>
+                    </div>
+                    <p style="margin-bottom: 2rem;">El mejor regalo es tu presencia, pero si deseas hacernos
+                        llegar un bonito detalle lo recibiremos con mucho cariño.</p>
+                    <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; letter-spacing: 2px;">
+                        Lluvia de Sobres</h3>
+                    <p>Contaremos con un buzón el día del evento.</p>
+                </div>
+            </section>
+
+            <!-- Attendance -->
+            <section id="attendance" style="background-color: var(--paper-color);">
+                <div class="section-header">
+                    <h2>Confirma tu Asistencia</h2>
+                </div>
+                <div class="content-wrapper">
+                    <div class="section-icon-wrapper">
+                        <div class="divider-line"></div>
+                        <div class="icon-circle"><i class="fa-regular fa-envelope"></i></div>
+                        <div class="divider-line"></div>
+                    </div>
+                    <p style="margin-bottom: 2.5rem;">Por favor, confírmanos tu asistencia antes del 6 de Mayo.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                        <button class="cta-button rsvp-button pulse-animation">Llenar Formulario</button>
+                        <!-- Eliminado botón de WhatsApp adicional para mantener limpieza de UI, la confirmación se hará vía formulario -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dots Memories / Love Story -->
+            <section id="dots" style="position: relative; overflow: hidden; padding: 10rem 2rem; color: white;">
+                <img src="WhatsApp Image 2026-03-01 at 2.42.30 PM.jpeg" alt="Alejo & Sthef Love Story"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6);">
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(45, 70, 40, 0.8), rgba(0, 0, 0, 0.2)); z-index: 1;">
+                </div>
+
+                <div class="content-wrapper"
+                    style="position: relative; z-index: 2; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                    <div class="section-icon-wrapper" style="margin-bottom: 2rem;">
+                        <div class="divider-line" style="background: linear-gradient(90deg, transparent, white);"></div>
+                        <div class="icon-circle"
+                            style="border-color: white; color: white; background: transparent; box-shadow: 0 0 15px rgba(255,255,255,0.4);">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                        <div class="divider-line" style="background: linear-gradient(270deg, transparent, white);">
+                        </div>
+                    </div>
+
+                    <h2
+                        style="font-family: 'Great Vibes', cursive; font-size: 4rem; letter-spacing: 2px; margin-bottom: 1rem; color: white; font-weight: 400; text-transform: none;">
+                        Love Story</h2>
+
+                    <p
+                        style="margin-bottom: 2rem; font-size: 1.1rem; max-width: 80%; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                        Únete a capturar la magia de nuestro día especial usando el hashtag de nuestra boda.</p>
+
+                    <h2 style="font-family: 'Montserrat', sans-serif; letter-spacing: 3px; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 2.5rem; background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; border: 1px solid rgba(191, 163, 126, 0.5);"
+                        id="album-code">#BODAALEJOYSTHEFANIA</h2>
+
+                    <button class="cta-button" style="margin-top: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4);"
+                        onclick="copyToClipboard('album-code')"><i class="fas fa-copy"
+                            style="margin-right: 8px;"></i>Copiar Hashtag</button>
+                </div>
+            </section>
+
+
+
+            <!-- Footer -->
+            <footer class="footer">
+                <h2
+                    style="font-family: 'Great Vibes', cursive; font-size: 4.5rem; margin-bottom: 2rem; text-shadow: 0 2px 10px rgba(0,0,0,0.2); font-weight: 400;">
+                    Alejandro & Sthefania</h2>
+                <div style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.8; letter-spacing: 5px;">06 . 06
+                    . 2026</div>
+                <div class="heart" style="margin-top: 4rem; opacity: 0.5;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color);">
+                        <path d="M12 22C12 22 11 16 7 14C3 12 2 8 4 6C5 5 7 4 10 5C13 6 12 11 12 11"></path>
+                        <path d="M12 22C12 22 13 16 17 14C21 12 22 8 20 6C19 5 17 4 14 5C11 6 12 11 12 11">
+                        </path>
+                    </svg>
+                </div>
+                <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.6; font-family: 'Montserrat', sans-serif;">
+                    ¡Los esperamos con mucho amor!</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+
+    <!-- URL Parameters Script -->
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestName = urlParams.get('n');
+        const guestTickets = urlParams.get('c');
+        const guestTable = urlParams.get('m');
+
+        // Set Envelope Data
+        if (guestName) {
+            document.getElementById('env-guest-name').innerText = guestName;
+            document.getElementById('guest-name').value = guestName; // Pre-fill RSVP form
+        }
+
+        if (guestTickets) {
+            let infoText = `Cupos: ${guestTickets}`;
+            if (guestTable) infoText += ` \u00A0\u00A0\u2022\u00A0\u00A0 Mesa: ${guestTable}`;
+            document.getElementById('env-guest-info').innerText = infoText;
+
+            // Pre-select RSVP form count if possible
+            const countSelect = document.getElementById('guest-count');
+            const options = Array.from(countSelect.options);
+            const optionToSelect = options.find(opt => opt.value === guestTickets);
+            if (optionToSelect) {
+                optionToSelect.selected = true;
+            } else if (parseInt(guestTickets) > 3) {
+                // Add option dynamically if more than 3
+                const newOption = document.createElement('option');
+                newOption.value = guestTickets;
+                newOption.text = `${guestTickets} Personas`;
+                newOption.selected = true;
+                countSelect.add(newOption);
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+    <!-- RSVP Modal Moved to Body for Stacking Context Fix -->
+    <div id="rsvp-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="rsvp-form-container">
+                <div class="modal-header">
+                    <h2>Confirmar Asistencia</h2>
+                </div>
+                <form id="rsvp-form-real">
+                    <div class="form-group">
+                        <label for="guest-name">Nombre Completo</label>
+                        <input type="text" id="guest-name" name="name" required placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance-status">¿Asistirás?</label>
+                        <select id="attendance-status" name="status" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="confirmado">Sí, allí estaré</option>
+                            <option value="declinado">No podré asistir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-count">Número de Personas</label>
+                        <select id="guest-count" name="count">
+                            <option value="1">1 Persona</option>
+                            <option value="2">2 Personas</option>
+                            <option value="3">3 Personas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-message">Mensaje (Opcional)</label>
+                        <textarea id="guest-message" name="message" rows="3"
+                            placeholder="Algo que quieras decirnos..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Enviar
+                        Confirmación</button>
+                </form>
+            </div>
+
+            <!-- Success Message Container -->
+            <div id="rsvp-success">
+                <i class="fas fa-check-circle"></i>
+                <h3>¡Gracias!</h3>
+                <p>Tu confirmación ha sido enviada con éxito. ¡Nos vemos en la boda!</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

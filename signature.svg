@@ -1,0 +1,61 @@
+<svg
+  viewBox="0 0 1200 300"
+  xmlns="http://www.w3.org/2000/svg"
+  style="width:100%; max-width:900px; display:block; margin:auto;"
+>
+  <path
+    d="M20,150 
+       C120,150 220,100 300,150 
+       M300,150 
+       C330,50 420,30 480,150 
+       M480,150 
+       C520,250 680,250 720,150 
+       M720,150 
+       C780,30 870,50 900,150 
+       M900,150 
+       C980,100 1080,150 1180,150"
+    fill="transparent"
+    stroke="#27ae60"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  
+  <text
+    x="270"
+    y="160"
+    text-anchor="end"
+    class="signature-text"
+  >
+    Alejandro
+  </text>
+
+  <text
+    x="940"
+    y="160"
+    text-anchor="start"
+    class="signature-text"
+  >
+    Sthefania
+  </text>
+
+  <!-- Corazón en el centro -->
+  <path
+    d="M570,160
+       C560,120 610,120 600,160
+       C590,200 550,200 570,160Z"
+    fill="none"
+    stroke="#27ae60"
+    stroke-width="2"
+  />
+</svg>
+
+
+
+
+
+
+
+
+
+

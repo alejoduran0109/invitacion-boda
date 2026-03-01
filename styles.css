@@ -1,0 +1,1004 @@
+/* 
+   WEDDING INVITATION - STAGE & FRAME DESIGN
+   Strictly enforced 500px column centered on a contrasting stage.
+*/
+
+:root {
+    --primary-color: #2d4628;
+    --secondary-color: #4a5d23;
+    --accent-color: #bfa37e;
+    --text-color: #1b2e1a;
+    --background-color: #fcfaf7;
+    --paper-color: #f9f7f2;
+    --envelope-color: #3e4c3a;
+    --white: #ffffff;
+    --sand-color: #d4a373;
+    --stage-bg: #2c332b;
+    /* Dark contrasting stage for PC */
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    min-height: 100vh;
+    background-color: var(--stage-bg);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+}
+
+/* --- THE MASTER WRAPPER --- */
+.stage-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: var(--white);
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+    /* Softer, more modern shadow */
+    border-radius: 8px;
+    /* Slight rounding for a premium feel */
+}
+
+/* --- ENVELOPE SCREEN (INSIDE WRAPPER) --- */
+.envelope-screen {
+    background: #eef0eb;
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.7) 0%, transparent 80%),
+        url("https://www.transparenttextures.com/patterns/linen-paper.png");
+    height: 100vh;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    /* Stack tag and envelope vertically */
+    justify-content: center;
+    align-items: center;
+    perspective: 2000px;
+    overflow: hidden;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+}
+
+/* Floating Welcome Tag (Ticket effect) */
+.welcome-tag {
+    margin-bottom: 40px;
+    padding: 20px 40px;
+    background: rgba(255, 253, 249, 0.95);
+    border: 1px solid rgba(191, 163, 126, 0.4);
+    border-radius: 4px;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.1),
+        inset 0 0 10px rgba(191, 163, 126, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 50;
+    /* Above the envelope */
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideDownTag 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.3s;
+}
+
+.welcome-tag::before {
+    /* Delicate inner border */
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px solid rgba(191, 163, 126, 0.2);
+    pointer-events: none;
+}
+
+.welcome-tag::after {
+    /* Bottom elegant dot */
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tag-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.tag-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--primary-color);
+    line-height: 1;
+    margin: 5px 0;
+    font-weight: 400;
+}
+
+.tag-info {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #7a8a75;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+@keyframes slideDownTag {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.envelope-wrapper {
+    position: relative;
+    width: 360px;
+    /* Wider for professional proportions */
+    height: 240px;
+    /* Slightly taller */
+    cursor: pointer;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+}
+
+.envelope-wrapper:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #4a5d4e;
+    /* Deeper, richer green */
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    border-radius: 2px;
+    /* Sharper corners like real paper */
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #506454;
+    /* Slightly lighter for contrast */
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.pattern");
+    clip-path: polygon(0 0, 50% 55%, 100% 0);
+    /* Pointier, more elegant flap */
+    transform-origin: top;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.envelope .body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #4a5d4e;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 45%);
+    /* Creates the inset for the flap */
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.envelope .body::before {
+    /* Left triangle */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #435547;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    clip-path: polygon(0 0, 50% 50%, 0 100%);
+}
+
+.envelope .body::after {
+    /* Right triangle */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #455749;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+}
+
+.envelope .seal {
+    position: absolute;
+    top: 55%;
+    /* Centered precisely on the new flap tip */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    /* Smaller, more delicate */
+    height: 55px;
+    background: linear-gradient(135deg, #d4af37, #aa8022);
+    /* True gold leaf effect */
+    border-radius: 50%;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.envelope-wrapper:hover .seal {
+    transform: translate(-50%, -50%) rotate(10deg) scale(1.08);
+    /* More subtle hover */
+}
+
+.guest-card {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    height: 98%;
+    background: #fffdf9;
+    background-image: url("https://www.transparenttextures.com/patterns/linen-paper.png");
+    z-index: 2;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(191, 163, 126, 0.3);
+    /* Subtle gold border */
+}
+
+.guest-card::after {
+    /* Inner gold border detail */
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid rgba(191, 163, 126, 0.15);
+    pointer-events: none;
+}
+
+.guest-card .invite-title {
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.guest-card .guest-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.guest-card .guest-info {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #8c9081;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+.envelope.open .flap {
+    transform: rotateX(170deg);
+}
+
+.envelope.open .guest-card {
+    transform: translate(-50%, -150px);
+}
+
+.envelope.open .seal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    /* Shrinks away instead of just vanishing */
+}
+
+.click-hint {
+    position: absolute;
+    bottom: 8%;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: #bfa37e;
+    /* Gold color */
+    text-transform: uppercase;
+    font-weight: 400;
+    animation: pulseHint 2.5s infinite;
+}
+
+@keyframes pulseHint {
+    0% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+}
+
+/* --- MAIN INVITATION --- */
+.wedding-card {
+    width: 100%;
+    background: var(--white);
+    min-height: 100vh;
+    display: none;
+    opacity: 0;
+    position: relative;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: brightness(0.85) contrast(1.1);
+}
+
+.hero-overlay-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(27, 46, 26, 0.1) 0%,
+            rgba(27, 46, 26, 0.3) 50%,
+            rgba(27, 46, 26, 0.7) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    padding-top: 5vh;
+}
+
+.hero-top-text {
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.hero-names-box {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-content .name {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 6.5rem;
+    /* Nombres grandes en letra cursiva refinada */
+    letter-spacing: 0.02em;
+    color: white !important;
+    line-height: 0.9;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6), 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content .ampersand {
+    font-family: 'Great Vibes', cursive;
+    font-style: normal;
+    font-size: 3.5rem;
+    margin: 0.8rem 0;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.hero-date-info {
+    font-size: 1rem;
+    letter-spacing: 6px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 3.5rem;
+}
+
+.countdown-minimal {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+.countdown-minimal .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-minimal .number {
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+}
+
+.countdown-minimal .label {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 25px;
+    /* Moved slightly up */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+    z-index: 50;
+    /* Ensure it's above the background overlay */
+}
+
+.scroll-indicator span {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Sections & Components */
+section {
+    padding: 7rem 2rem;
+    /* Clean vertical rhythm */
+    width: 100%;
+    text-align: center;
+}
+
+.content-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.section-header h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 2rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 6rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background: var(--accent-color);
+}
+
+/* Timeline */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: white;
+    border: 1px solid #f0ede6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    width: 100%;
+}
+
+.timeline-item .time {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    min-width: 90px;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    width: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    border: 10px solid white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons */
+.cta-button,
+.whatsapp-btn,
+.app-download-btn {
+    padding: 1.2rem 3rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    /* Fully rounded pill shape */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(45, 70, 40, 0.2);
+    text-decoration: none;
+    /* In case it's an anchor link */
+}
+
+.cta-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(45, 70, 40, 0.3);
+}
+
+.cta-button-outline {
+    padding: 1.2rem 3rem;
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.cta-button-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Footer */
+.footer {
+    padding: 10rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.footer h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Animations */
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* RSVP Modal Styles */
+.modal {
+    display: none;
+    /* Changed via JS */
+    position: fixed;
+    z-index: 9999;
+    /* Max z-index to ensure it sits on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(27, 46, 26, 0.7);
+    backdrop-filter: blur(4px);
+    overflow: auto;
+    align-items: center;
+    /* helps centering if flex used later */
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: auto;
+    margin-top: 15vh;
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+    animation: modalSlideIn 0.5s var(--transition);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-modal {
+    color: #a0aab2;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--text-color);
+}
+
+.modal-header h2 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid #dde1d9;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    background: #fdfaf7;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(191, 163, 126, 0.15);
+}
+
+/* Success Message inside Modal */
+#rsvp-success {
+    display: none;
+    text-align: center;
+    padding: 2rem 0;
+    animation: fadeIn 0.5s ease;
+}
+
+#rsvp-success i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+#rsvp-success h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Icon Styles */
+.location-icon,
+.dress-icon-main,
+.gift-icon,
+.dots-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: white;
+    color: var(--accent-color);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    box-shadow:
+        0 10px 25px rgba(45, 70, 40, 0.08),
+        0 0 0 1px rgba(191, 163, 126, 0.1);
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+}
+
+.location-icon::before,
+.dress-icon-main::before,
+.gift-icon::before,
+.dots-logo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: -1;
+    animation: pulseBorder 3s infinite;
+}
+
+@keyframes pulseBorder {
+    0% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+}
+
+.dress-icon-main i {
+    margin: 0 5px;
+}
+
+@keyframes floatingIcon {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+
+    33% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+
+    66% {
+        transform: translateY(-5px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+.pulse-animation {
+    animation: pulseButton 2s infinite;
+}
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(45, 70, 40, 0.2);
+    }
+
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(45, 70, 40, 0.3);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(45, 70, 40, 0.2);
+    }
+}
+
+/* Decorative Elements - Section Icons */
+.section-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 3.5rem;
+    width: 60%;
+    opacity: 0.9;
+}
+
+.section-icon-wrapper .divider-line {
+    height: 1px;
+    flex-grow: 1;
+    background: linear-gradient(90deg, transparent, var(--accent-color));
+}
+
+.section-icon-wrapper .divider-line:last-child {
+    background: linear-gradient(270deg, transparent, var(--accent-color));
+}
+
+.section-icon-wrapper .icon-circle {
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    box-shadow: inset 0 0 10px rgba(191, 163, 126, 0.15);
+    background: var(--white);
+    position: relative;
+    z-index: 2;
+}
+
+.section-icon-wrapper .icon-circle::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulseBorder 3s infinite;
+    z-index: -1;
+}
+
+.card-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    opacity: 0.3;
+}
+
+/* Hero Text Refinement removed */
+/* Spacing Adjustments */
+section {
+    padding: 6rem 2rem;
+}
+
+.card-container {
+    padding: 4rem 2rem;
+    border: 1px solid #f0ede6;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(45, 70, 40, 0.04);
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+@media (max-width: 500px) {
+    .stage-container {
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .hero-content .name {
+        font-size: 3.2rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .hero-content {
+        gap: 2.5rem;
+    }
+}
