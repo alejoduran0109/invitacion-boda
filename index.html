@@ -15,7 +15,7 @@
 <body>
     <!-- Audio Element for background music (Hidden) -->
     <audio id="bg-music" loop>
-        <source src="WhatsApp Audio 2026-03-01 at 10.21.51 PM.mpeg" type="audio/mpeg">
+        <source src="WhatsApp Audio 2026-03-01 at 10.40.13 PM.mpeg" type="audio/mpeg">
     </audio>
 
     <div class="stage-container">
@@ -31,9 +31,7 @@
 
             <div class="envelope-wrapper" id="envelope">
                 <div class="envelope">
-                    <div class="flap"></div>
-                    <div class="body"></div>
-
+                    <!-- 1. Guest Card (Layer 1 - Bottom) -->
                     <div class="guest-card">
                         <h2 class="invite-title">Nuestra Boda</h2>
                         <div class="rings-icon" style="margin: 5px 0; font-size: 1.2rem; color: var(--accent-color);">
@@ -48,9 +46,17 @@
                             ALEJANDRO & STHEFANIA</p>
                     </div>
 
-                    <div class="seal">
-                        <i class="fas fa-heart"></i>
+                    <!-- 2. Envelope Body (Layer 2 - Front Face) -->
+                    <div class="body"></div>
+
+                    <!-- 3. Envelope Flap (Layer 3 - Top) -->
+                    <div class="flap">
+                        <div class="seal">
+                            <i class="fas fa-heart"></i>
+                        </div>
                     </div>
+
+
                 </div>
             </div>
             <p class="click-hint">Toca el sobre para abrir</p>
@@ -325,38 +331,50 @@
 
     <!-- URL Parameters Script -->
     <script>
-        // Parse URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestName = urlParams.get('n');
-        const guestTickets = urlParams.get('c');
-        const guestTable = urlParams.get('m');
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('n');
+            const guestTickets = urlParams.get('c');
+            const guestTable = urlParams.get('m');
 
-        // Set Envelope Data
-        if (guestName) {
-            document.getElementById('env-guest-name').innerText = guestName;
-            document.getElementById('guest-name').value = guestName; // Pre-fill RSVP form
-        }
+            if (guestName) {
+                // Update Welcome Tag
+                const welcomeName = document.getElementById('env-guest-name');
+                if (welcomeName) welcomeName.innerText = guestName;
 
-        if (guestTickets) {
-            let infoText = `Cantidad de personas: ${guestTickets}`;
-            if (guestTable) infoText += ` \u00A0\u2022\u00A0 Mesa: ${guestTable}`;
-            document.getElementById('env-guest-info').innerText = infoText;
+                // Update RSVP form
+                const rsvpName = document.getElementById('guest-name');
+                if (rsvpName) rsvpName.value = guestName;
 
-            // Pre-select RSVP form count if possible
-            const countSelect = document.getElementById('guest-count');
-            const options = Array.from(countSelect.options);
-            const optionToSelect = options.find(opt => opt.value === guestTickets);
-            if (optionToSelect) {
-                optionToSelect.selected = true;
-            } else if (parseInt(guestTickets) > 3) {
-                // Add option dynamically if more than 3
-                const newOption = document.createElement('option');
-                newOption.value = guestTickets;
-                newOption.text = `${guestTickets} Personas`;
-                newOption.selected = true;
-                countSelect.add(newOption);
+                // Update Guest Card (Inside envelope) - optional personalized touch
+                // document.querySelector('.guest-card .guest-info').innerText = guestName;
             }
-        }
+
+            if (guestTickets) {
+                const infoText = `Cantidad de personas: ${guestTickets}`;
+                const welcomeInfo = document.getElementById('env-guest-info');
+                if (welcomeInfo) {
+                    welcomeInfo.innerText = infoText;
+                    if (guestTable) welcomeInfo.innerText += ` \u00A0\u2022\u00A0 Mesa: ${guestTable}`;
+                }
+
+                // Pre-select RSVP form count
+                const countSelect = document.getElementById('guest-count');
+                if (countSelect) {
+                    const options = Array.from(countSelect.options);
+                    const optionToSelect = options.find(opt => opt.value === guestTickets);
+                    if (optionToSelect) {
+                        optionToSelect.selected = true;
+                    } else {
+                        const newOption = document.createElement('option');
+                        newOption.value = guestTickets;
+                        newOption.text = `${guestTickets} Personas`;
+                        newOption.selected = true;
+                        countSelect.add(newOption);
+                    }
+                }
+            }
+        });
     </script>
 
     <script src="script.js"></script>

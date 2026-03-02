@@ -75,41 +75,53 @@ function initEnvelope() {
     }, 100);
 
     envelope.addEventListener('click', function () {
-        if (this.classList.contains('open')) return; // Prevent double clicks
+        if (this.classList.contains('open')) return;
 
-        // Animation sequence
-        envelope.classList.add('open');
+        // Interactive "Pop" effect on click
+        this.style.transform = 'scale(0.95) translateY(10px)';
 
-        // Fade out the floating welcome tag gracefully as the flap opens
-        if (welcomeTag) {
-            welcomeTag.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            welcomeTag.style.opacity = '0';
-            welcomeTag.style.transform = 'translateY(-20px)';
-        }
-
-        // Attempt to play audio (User interaction allows autoplay block bypass)
-        if (bgMusic) {
-            bgMusic.volume = 0.5; // Starts at a comfortable volume
-            bgMusic.play().catch(e => console.log("Audio play failed:", e));
-        }
-
-        // Step 1: Open flap & reveal card first (Allow CSS time to play out)
         setTimeout(() => {
-            screen.style.transition = 'opacity 1.2s ease, visibility 1.2s';
-            screen.style.opacity = '0';
-            screen.style.visibility = 'hidden';
+            envelope.classList.add('open');
+            this.style.transform = ''; // Return to CSS-controlled transform
 
-            // Step 2: Show main content behind it
-            main.style.display = 'block';
+            // Fade out the floating welcome tag gracefully
+            if (welcomeTag) {
+                welcomeTag.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                welcomeTag.style.opacity = '0';
+                welcomeTag.style.transform = 'translateY(-30px) scale(0.9)';
+            }
 
-            // Reflow then gentle fade and slide up
+            // Attempt to play audio
+            if (bgMusic) {
+                bgMusic.volume = 0.5;
+                bgMusic.play().catch(e => console.log("Audio play failed:", e));
+            }
+
+            // Reveal Sequence (Synchronized with 3D animation)
             setTimeout(() => {
-                main.style.transition = 'opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
-                main.style.opacity = '1';
-                main.style.transform = 'translateY(0)';
+                // Fade out screen while scaling up slightly
+                screen.style.transition = 'opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 2s cubic-bezier(0.4, 0, 0.2, 1)';
+                screen.style.opacity = '0';
+                screen.style.transform = 'scale(1.08) translateY(-40px)';
+                screen.style.pointerEvents = 'none';
+
+                main.style.display = 'block';
+                main.style.opacity = '0';
+                main.style.transform = 'translateY(50px)';
+
+                setTimeout(() => {
+                    main.style.transition = 'opacity 2.5s ease-out, transform 2.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                    main.style.opacity = '1';
+                    main.style.transform = 'translateY(0)';
+
+                    setTimeout(() => {
+                        screen.style.visibility = 'hidden';
+                    }, 2500);
+                }, 500);
+
                 window.scrollTo(0, 0);
-            }, 100);
-        }, 1600); // Increased wait time so the user can actually read the beautiful guest card before it fades
+            }, 2400); // Wait for flap(1.5s) + card delay(0.6s) to finish beautifully
+        }, 150);
     });
 }
 
@@ -227,7 +239,7 @@ function initRSVPModal() {
 
             // Formatear mensaje para WhatsApp
             const text = `*💍 Confirmación de Boda*%0A%0A*Nombre:* ${name}%0A*Estado:* ${status === 'confirmado' ? '✅ Asistiré con mucha alegría' : '❌ No podré asistir'}%0A*Personas:* ${count}%0A*Mensaje:* _${message}_%0A%0A¡Muchas gracias!`;
-            const whatsappUrl = `https://wa.me/5735040211007?text=${text}`;
+            const whatsappUrl = `https://wa.me/573507021107?text=${text}`;
 
             setTimeout(() => {
                 // Ocultar formulario y mostrar éxito
