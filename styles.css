@@ -263,6 +263,20 @@ body {
     /* More subtle hover */
 }
 
+.envelope.open .flap {
+    transform: rotateX(170deg);
+}
+
+.envelope.open .guest-card {
+    transform: translate(-50%, -200px);
+    /* Lifted higher */
+}
+
+.envelope.open .seal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
 .guest-card {
     position: absolute;
     top: 5px;
@@ -306,13 +320,57 @@ body {
     font-weight: 400;
 }
 
-.guest-card .guest-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.8rem;
+.card-date-glance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.card-date-glance .day,
+.card-date-glance .year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+    color: #8c9081;
+}
+
+.card-date-glance .main-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    /* Massive date visibility */
+    font-weight: 200;
+    letter-spacing: 8px;
     color: var(--primary-color);
-    margin: 0;
+    margin: 5px 0;
     line-height: 1;
-    font-weight: 400;
+}
+
+.card-date-glance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.card-date-glance .day,
+.card-date-glance .year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+    color: #8c9081;
+}
+
+.card-date-glance .main-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 200;
+    letter-spacing: 8px;
+    color: var(--primary-color);
+    margin: 5px 0;
+    line-height: 1;
 }
 
 .guest-card .guest-info {
@@ -765,6 +823,58 @@ section {
     transition: all 0.3s ease;
 }
 
+/* Guest Badge on Welcome Tag */
+.guest-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.guest-badge::after {
+    content: 'P';
+    font-size: 0.5rem;
+    position: absolute;
+    bottom: -8px;
+    background: var(--primary-color);
+    padding: 1px 4px;
+    border-radius: 10px;
+}
+
+/* Footer Quote Styling */
+.footer-quote-container {
+    max-width: 300px;
+    margin: 2rem auto;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.footer-quote {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.quote-icon {
+    font-size: 0.8rem;
+    opacity: 0.4;
+    color: var(--accent-color);
+    vertical-align: middle;
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -1001,4 +1111,54 @@ section {
     .hero-content {
         gap: 2.5rem;
     }
+}
+
+/* Color Palette Styling */
+.color-palette-container {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.palette-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.palette-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.palette-item span {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.color-circles-group {
+    display: flex;
+}
+
+.color-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.color-circles-group .color-circle:nth-child(2) {
+    margin-left: -15px;
+    z-index: 1;
+    border: 2px solid white;
+}
+
+/* Remove old guest badge */
+.guest-badge {
+    display: none;
 }

@@ -15,7 +15,7 @@
 <body>
     <!-- Audio Element for background music (Hidden) -->
     <audio id="bg-music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="WhatsApp Audio 2026-03-01 at 5.41.57 PM.mpeg" type="audio/mpeg">
     </audio>
 
     <div class="stage-container">
@@ -26,7 +26,7 @@
             <div class="welcome-tag" id="welcome-tag">
                 <p class="tag-subtitle">BIENVENIDOS</p>
                 <h1 class="tag-name" id="env-guest-name">Invitado Especial</h1>
-                <p class="tag-info" id="env-guest-info">Pase de Invitación</p>
+                <p class="tag-info" id="env-guest-info">Pases de Invitación</p>
             </div>
 
             <div class="envelope-wrapper" id="envelope">
@@ -36,11 +36,16 @@
 
                     <div class="guest-card">
                         <h2 class="invite-title">Nuestra Boda</h2>
-                        <div class="rings-icon" style="margin: 15px 0; font-size: 2rem; color: var(--accent-color);">
+                        <div class="rings-icon" style="margin: 5px 0; font-size: 1.2rem; color: var(--accent-color);">
                             <i class="fas fa-ring"></i>
                         </div>
-                        <h1 class="guest-name" style="font-size: 2.2rem;">06 . 06 . 2026</h1>
-                        <p class="guest-info">Alejandro & Sthefania</p>
+                        <div class="card-date-glance">
+                            <span class="day">SÁBADO</span>
+                            <h1 class="main-date">06 . 06</h1>
+                            <span class="year">2026</span>
+                        </div>
+                        <p class="guest-info" style="margin-top: 1rem; font-weight: 500; color: var(--primary-color);">
+                            ALEJANDRO & STHEFANIA</p>
                     </div>
 
                     <div class="seal">
@@ -124,10 +129,46 @@
                         <div class="icon-circle"><i class="fa-solid fa-chess-queen"></i></div>
                         <div class="divider-line"></div>
                     </div>
-                    <h3 style="letter-spacing: 2px;">Riguroso Formal</h3>
-                    <p style="margin-top: 1.5rem;">El blanco está reservado exclusivamente para la novia. Por
-                        favor, acompáñanos con tus mejores galas en otros tonos.</p>
-                    <p style="margin-top: 1rem; font-weight: 600; letter-spacing: 1px;">- NO NIÑOS -</p>
+                    <h3 style="letter-spacing: 2px; text-transform: uppercase; font-size: 1.1rem;">Formal Elegante</h3>
+
+                    <div class="dress-details"
+                        style="margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.8rem; align-items: center;">
+                        <div style="opacity: 0.9;">
+                            <span
+                                style="font-weight: 600; letter-spacing: 1px; color: var(--primary-color); text-transform: uppercase; font-size: 0.85rem;">Mujeres:</span>
+                            <span>Vestido largo</span>
+                        </div>
+                        <div style="opacity: 0.9;">
+                            <span
+                                style="font-weight: 600; letter-spacing: 1px; color: var(--primary-color); text-transform: uppercase; font-size: 0.85rem;">Hombres:</span>
+                            <span>Atuendo formal (blazer opcional)</span>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem; font-style: italic; opacity: 0.7; font-size: 0.85rem;">Reservamos el uso
+                        de los siguientes colores:</p>
+
+                    <!-- Color Palette Section -->
+                    <div class="color-palette-container">
+
+                        <div class="palette-grid">
+                            <div class="palette-item">
+                                <div class="color-circles-group">
+                                    <div class="color-circle"
+                                        style="background-color: #FFFFFF; border: 1px solid #eee;"></div>
+                                    <div class="color-circle" style="background-color: #F8F4E3;"></div>
+                                </div>
+                                <span>Blancos / Crema</span>
+                            </div>
+                            <div class="palette-item">
+                                <div class="color-circles-group">
+                                    <div class="color-circle" style="background-color: #000080;"></div>
+                                    <div class="color-circle" style="background-color: #1A2980;"></div>
+                                </div>
+                                <span>Azul Navy / Oscuros</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -241,7 +282,7 @@
                         Únete a capturar la magia de nuestro día especial usando el hashtag de nuestra boda.</p>
 
                     <h2 style="font-family: 'Montserrat', sans-serif; letter-spacing: 3px; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 2.5rem; background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; border: 1px solid rgba(191, 163, 126, 0.5);"
-                        id="album-code">#BODAALEJOYSTHEFANIA</h2>
+                        id="album-code">#BODAALEJOYSTHEFI</h2>
 
                     <button class="cta-button" style="margin-top: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4);"
                         onclick="copyToClipboard('album-code')"><i class="fas fa-copy"
@@ -258,7 +299,15 @@
                     Alejandro & Sthefania</h2>
                 <div style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.8; letter-spacing: 5px;">06 . 06
                     . 2026</div>
-                <div class="heart" style="margin-top: 4rem; opacity: 0.5;">
+                <!-- Footer Message -->
+                <div class="footer-quote-container">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="footer-quote">“Dos corazones, un amor, una promesa eterna. Nuestro si para toda la vida”
+                    </p>
+                    <i class="fas fa-quote-right quote-icon"></i>
+                </div>
+
+                <div class="heart" style="margin-top: 3rem; opacity: 0.5;">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
                         stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color);">
                         <path d="M12 22C12 22 11 16 7 14C3 12 2 8 4 6C5 5 7 4 10 5C13 6 12 11 12 11"></path>
@@ -289,8 +338,8 @@
         }
 
         if (guestTickets) {
-            let infoText = `Cupos: ${guestTickets}`;
-            if (guestTable) infoText += ` \u00A0\u00A0\u2022\u00A0\u00A0 Mesa: ${guestTable}`;
+            let infoText = parseInt(guestTickets) === 1 ? '1 Pase de Invitación' : `${guestTickets} Pases de Invitación`;
+            if (guestTable) infoText += ` \u00A0\u2022\u00A0 Mesa: ${guestTable}`;
             document.getElementById('env-guest-info').innerText = infoText;
 
             // Pre-select RSVP form count if possible

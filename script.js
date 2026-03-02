@@ -226,20 +226,18 @@ function initRSVPModal() {
             submitBtn.disabled = true;
 
             // Formatear mensaje para WhatsApp
-            const text = `*Confirmación de Asistencia*%0A*Nombre:* ${name}%0A*Estado:* ${status === 'confirmado' ? '✅ Asistiré' : '❌ No podré asistir'}%0A*Personas:* ${count}%0A*Mensaje:* ${message}`;
-            const whatsappUrl = `https://wa.me/573000000000?text=${text}`;
+            const text = `*💍 Confirmación de Boda*%0A%0A*Nombre:* ${name}%0A*Estado:* ${status === 'confirmado' ? '✅ Asistiré con mucha alegría' : '❌ No podré asistir'}%0A*Personas:* ${count}%0A*Mensaje:* _${message}_%0A%0A¡Muchas gracias!`;
+            const whatsappUrl = `https://wa.me/5735040211007?text=${text}`;
 
             setTimeout(() => {
                 // Ocultar formulario y mostrar éxito
                 document.getElementById('rsvp-form-container').style.display = 'none';
                 document.getElementById('rsvp-success').style.display = 'block';
 
-                // Redirigir a WhatsApp después de un breve delay si confirmó
-                if (status === 'confirmado') {
-                    setTimeout(() => {
-                        window.open(whatsappUrl, '_blank');
-                    }, 2000);
-                }
+                // Redirigir a WhatsApp después de un breve delay
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                }, 2000);
 
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
