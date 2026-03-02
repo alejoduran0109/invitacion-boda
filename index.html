@@ -15,7 +15,7 @@
 <body>
     <!-- Audio Element for background music (Hidden) -->
     <audio id="bg-music" loop>
-        <source src="WhatsApp Audio 2026-03-01 at 5.41.57 PM.mpeg" type="audio/mpeg">
+        <source src="WhatsApp Audio 2026-03-01 at 10.21.51 PM.mpeg" type="audio/mpeg">
     </audio>
 
     <div class="stage-container">
@@ -26,7 +26,7 @@
             <div class="welcome-tag" id="welcome-tag">
                 <p class="tag-subtitle">BIENVENIDOS</p>
                 <h1 class="tag-name" id="env-guest-name">Invitado Especial</h1>
-                <p class="tag-info" id="env-guest-info">Pases de Invitación</p>
+                <p class="tag-info" id="env-guest-info">Cantidad de personas</p>
             </div>
 
             <div class="envelope-wrapper" id="envelope">
@@ -165,7 +165,7 @@
                                     <div class="color-circle" style="background-color: #000080;"></div>
                                     <div class="color-circle" style="background-color: #1A2980;"></div>
                                 </div>
-                                <span>Azul Navy / Oscuros</span>
+                                <span>Azul Navy y Derivados</span>
                             </div>
                         </div>
                     </div>
@@ -338,7 +338,7 @@
         }
 
         if (guestTickets) {
-            let infoText = parseInt(guestTickets) === 1 ? '1 Pase de Invitación' : `${guestTickets} Pases de Invitación`;
+            let infoText = `Cantidad de personas: ${guestTickets}`;
             if (guestTable) infoText += ` \u00A0\u2022\u00A0 Mesa: ${guestTable}`;
             document.getElementById('env-guest-info').innerText = infoText;
 
