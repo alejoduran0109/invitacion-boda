@@ -97,30 +97,30 @@ function initEnvelope() {
                 bgMusic.play().catch(e => console.log("Audio play failed:", e));
             }
 
-            // Reveal Sequence (Synchronized with 3D animation)
+            // Reveal Sequence (Modified for the "Entering" effect)
             setTimeout(() => {
-                // Fade out screen while scaling up slightly
-                screen.style.transition = 'opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 2s cubic-bezier(0.4, 0, 0.2, 1)';
+                // Dramatically scale up and fade out the envelope screen
+                screen.style.transition = 'opacity 1.5s cubic-bezier(0.6, 0.05, 0.01, 0.9), transform 1.5s cubic-bezier(0.6, 0.05, 0.01, 0.9)';
                 screen.style.opacity = '0';
-                screen.style.transform = 'scale(1.08) translateY(-40px)';
+                screen.style.transform = 'scale(5) translateY(-50px)'; // Zoom "into" the card
                 screen.style.pointerEvents = 'none';
 
                 main.style.display = 'block';
                 main.style.opacity = '0';
-                main.style.transform = 'translateY(50px)';
+                main.style.transform = 'scale(0.9) translateY(20px)';
 
                 setTimeout(() => {
-                    main.style.transition = 'opacity 2.5s ease-out, transform 2.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                    main.style.transition = 'opacity 2s ease-out, transform 2s cubic-bezier(0.16, 1, 0.3, 1)';
                     main.style.opacity = '1';
-                    main.style.transform = 'translateY(0)';
+                    main.style.transform = 'scale(1) translateY(0)';
 
                     setTimeout(() => {
                         screen.style.visibility = 'hidden';
-                    }, 2500);
-                }, 500);
+                    }, 2000);
+                }, 400);
 
                 window.scrollTo(0, 0);
-            }, 2400); // Wait for flap(1.5s) + card delay(0.6s) to finish beautifully
+            }, 1400); // Shorter wait to match faster animations (flap 0.8s + card delay 0.3s)
         }, 150);
     });
 }
@@ -229,6 +229,7 @@ function initRSVPModal() {
             const name = formData.get('name');
             const status = formData.get('status');
             const count = formData.get('count');
+            const song = formData.get('song') || 'No especificada';
             const message = formData.get('message') || 'Sin mensaje';
 
             // Simular envío
@@ -238,7 +239,7 @@ function initRSVPModal() {
             submitBtn.disabled = true;
 
             // Formatear mensaje para WhatsApp
-            const text = `*💍 Confirmación de Boda*%0A%0A*Nombre:* ${name}%0A*Estado:* ${status === 'confirmado' ? '✅ Asistiré con mucha alegría' : '❌ No podré asistir'}%0A*Personas:* ${count}%0A*Mensaje:* _${message}_%0A%0A¡Muchas gracias!`;
+            const text = `*💍 Confirmación de Boda*%0A%0A*Nombre:* ${name}%0A*Estado:* ${status === 'confirmado' ? '✅ Asistiré con mucha alegría' : '❌ No podré asistir'}%0A*Personas:* ${count}%0A*Canción:* ${song}%0A*Mensaje:* _${message}_%0A%0A¡Muchas gracias!`;
             const whatsappUrl = `https://wa.me/573507021107?text=${text}`;
 
             setTimeout(() => {
