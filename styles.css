@@ -473,7 +473,9 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom,
-            rgba(27, 46, 26, 0.1) 0%,
+            rgba(0, 0, 0, 0.45) 0%,
+            /* Subtle shadow at the top for text visibility */
+            rgba(27, 46, 26, 0.1) 20%,
             rgba(27, 46, 26, 0.3) 50%,
             rgba(27, 46, 26, 0.7) 100%);
     z-index: 2;
@@ -492,11 +494,53 @@ body {
 }
 
 .hero-top-text {
-    font-size: 0.8rem;
-    letter-spacing: 5px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    /* Slightly smaller for the capsule look */
+    letter-spacing: 0.4em;
     text-transform: uppercase;
-    font-weight: 300;
-    margin-bottom: 2rem;
+    font-weight: 500;
+    margin-bottom: 3.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.6rem 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    /* Sophisticated glass effect */
+    backdrop-filter: blur(4px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: heroMessageReveal 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.8s;
+}
+
+.hero-top-text::before,
+.hero-top-text::after {
+    content: '';
+    width: 25px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6));
+}
+
+.hero-top-text::after {
+    background: linear-gradient(270deg, transparent, rgba(255, 255, 255, 0.6));
+}
+
+@keyframes heroMessageReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+        letter-spacing: 1em;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        letter-spacing: 0.5em;
+    }
 }
 
 .hero-names-box {
@@ -1194,7 +1238,163 @@ section {
     border: 2px solid white;
 }
 
-/* Remove old guest badge */
-.guest-badge {
-    display: none;
+.dots-integration-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    max-width: 100%;
+    margin: 3rem auto 0;
+    text-align: center;
+}
+
+.dots-description {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dots-text-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hashtag-box {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(191, 163, 126, 0.3);
+    position: relative;
+    margin-top: 1rem;
+}
+
+.hashtag-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+#album-code {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 400;
+}
+
+.copy-btn-mini {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.copy-btn-mini:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.dots-qr-side {
+    display: flex;
+    justify-content: center;
+}
+
+.qr-card {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    width: 240px;
+    transition: var(--transition);
+    border: 4px solid #fff;
+    cursor: pointer;
+    margin: 1rem auto;
+}
+
+.qr-card:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.05);
+}
+
+.qr-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.qr-header i {
+    color: var(--accent-color);
+}
+
+.qr-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.qr-footer {
+    margin-top: 12px;
+    font-size: 0.7rem;
+    color: #777;
+    text-align: center;
+    font-weight: 300;
+}
+
+/* Responsive refinements for Dots section */
+@media (min-width: 900px) and (min-width: 1000px) {
+    /* Only if we had a wide container, but we are capped at 500px */
+}
+
+/* Remove old dot memories padding if any */
+#dots {
+    padding: 18rem 2rem 10rem !important;
+    /* Increased top padding to reveal faces */
+}
+
+@media (max-width: 500px) {
+    #dots {
+        padding: 12rem 1.5rem 7rem !important;
+        /* Increased top padding for mobile */
+    }
+
+    .dots-integration-grid {
+        gap: 2.5rem;
+    }
+
+    #album-code {
+        font-size: 1.2rem;
+    }
+
+    .dots-description {
+        font-size: 1rem;
+    }
 }

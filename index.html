@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alejandro & Sthefania | Invitación de Boda</title>
-    <link rel="stylesheet" href="styles.css?v=2.4">
+    <link rel="stylesheet" href="styles.css?v=2.5">
     <link
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400&display=swap"
         rel="stylesheet">
@@ -287,16 +287,34 @@
                         style="font-family: 'Great Vibes', cursive; font-size: 4rem; letter-spacing: 2px; margin-bottom: 1rem; color: white; font-weight: 400; text-transform: none;">
                         Love Story</h2>
 
-                    <p
-                        style="margin-bottom: 2rem; font-size: 1.1rem; max-width: 80%; margin-left: auto; margin-right: auto; line-height: 1.6;">
-                        Únete a capturar la magia de nuestro día especial usando el hashtag de nuestra boda.</p>
+                    <div class="dots-integration-grid">
+                        <link rel="stylesheet" href="styles.css?v=2.6">
+                        <div class="dots-text-side">
+                            <p class="dots-description">
+                                Únete a capturar la magia de nuestro día especial. Escanea el código para descargar la
+                                app y ayudanos a compartir los mejores momentos.</p>
 
-                    <h2 style="font-family: 'Montserrat', sans-serif; letter-spacing: 3px; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 2.5rem; background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px; border: 1px solid rgba(191, 163, 126, 0.5);"
-                        id="album-code">#BODAALEJOYSTHEFI</h2>
+                            <div class="hashtag-box">
+                                <span class="hashtag-label">Hashtag de nuestra boda</span>
+                                <h2 id="album-code">#BODAALEJOYSTHEFI</h2>
+                                <button class="copy-btn-mini" onclick="copyToClipboard('album-code')">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                        </div>
 
-                    <button class="cta-button" style="margin-top: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4);"
-                        onclick="copyToClipboard('album-code')"><i class="fas fa-copy"
-                            style="margin-right: 8px;"></i>Copiar Hashtag</button>
+                        <div class="dots-qr-side">
+                            <div class="qr-card">
+                                <div class="qr-header">
+                                    <i class="fas fa-camera"></i>
+                                    <span>Dots Memories</span>
+                                </div>
+                                <img src="WhatsApp Image 2026-03-06 at 11.12.23 PM.jpeg" alt="QR Dots Memories"
+                                    class="qr-image">
+                                <div class="qr-footer">Escanea para descargar</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
